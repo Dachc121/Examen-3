@@ -13,26 +13,7 @@ typedef struct {
     float promedio;
 } Estudiante;
 
-int main(){
 void ordenarEstudiantes(Estudiante estudiantes[], int numEstudiantes);
-FILE *archivo;
-    int i;
-
-    archivo = fopen("datos_estudiantes_ordenados.txt", "w");
-    if (archivo == NULL) {
-        printf("Error al abrir el archivo.");
-        exit(1);
-    }
-     while (fscanf(archivo, "%d %s %f %f %f %f %f", &estudiantes[numEstudiantes].codigo,
-            estudiantes[numEstudiantes].nombre,
-            &estudiantes[numEstudiantes].calificaciones[0],
-            &estudiantes[numEstudiantes].calificaciones[1],
-            &estudiantes[numEstudiantes].calificaciones[2],
-            &estudiantes[numEstudiantes].calificaciones[3],
-            &estudiantes[numEstudiantes].calificaciones[4]) != EOF) {
-        calcularPromedio(&estudiantes[numEstudiantes]);
-        numEstudiantes++;
-    }
  int i, j;
     Estudiante temp;
 
@@ -70,25 +51,36 @@ void escribirArchivo(Estudiante estudiantes[], int numEstudiantes);
     for (i = 0; i < numEstudiantes; i++) {
         fprintf(archivo, "%d\t%s\t%s\t%.2f\n", estudiantes[i].codigo, estudiantes[i].nombre, estudiantes[i].carrera), estudiantes[i].promedio);
     }
-    ordenarEstudiantes(estudiantes, numEstudiantes); 
-    escribirArchivo(estudiantes, numEstudiantes);
 
-       printf("Archivo generado con éxito.\n");
+    fclose(archivo);
 
-       fclose(archivo);
 
-    return 0;  
+int main() {
+
+    FILE *archivo;
+    Estudiante estudiantes[max_estudiantes];
+    int numEstudiantes = 0;
+    archivo = fopen("datos_estudiantes.txt", "r");
+    if (archivo == NULL) {
+        printf("Error al abrir el archivo.");
+        return 1;
+    }
+    while (fscanf(archivo, "%d %s %f %f %f %f %f", &estudiantes[numEstudiantes].codigo,
+            estudiantes[numEstudiantes].nombre,
+            &estudiantes[numEstudiantes].calificaciones[0],
+            &estudiantes[numEstudiantes].calificaciones[1],
+            &estudiantes[numEstudiantes].calificaciones[2],
+            &estudiantes[numEstudiantes].calificaciones[3],
+            &estudiantes[numEstudiantes].calificaciones[4]) != EOF) {
+        calcularPromedio(&estudiantes[numEstudiantes]);
+                }    numEstudiantes++;
+
+                fclose(archivo);
+
+       ordenarEstudiantes(estudiantes, numEstudiantes);   
+           escribirArchivo(estudiantes, numEstudiantes);
+
+    printf("Archivo generado con éxito.\n");
+
+    return 0;            
 }    
-
-    
-
-
-
-          
-
-   
-
-
-     
-
-
