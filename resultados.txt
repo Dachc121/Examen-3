@@ -1,0 +1,30 @@
+Código: 2
+Nombre: Luis Miguel
+Carrera: Contabilidad
+Calificaciones: 5.00, 6.00, 7.00
+Promedio: 6.00
+
+Código: 1
+Nombre: Carlos Mata
+Carrera: Software
+Calificaciones: 6.00, 7.00, 8.00
+Promedio: 7.00
+
+Código: 5
+Nombre: Juan Pérez
+Carrera: Administración
+Calificaciones: 8.50, 8.00, 9.00
+Promedio: 8.50
+
+Código: 4
+Nombre: Maria Victoria
+Carrera: Software
+Calificaciones: 9.00, 9.00, 9.00
+Promedio: 9.00
+
+Código: 3
+Nombre: Ana Belén
+Carrera: Ciberseguridad
+Calificaciones: 10.00, 9.00, 10.00
+Promedio: 9.67
+
